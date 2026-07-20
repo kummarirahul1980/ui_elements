@@ -1,0 +1,33 @@
+<!-- div_box_html = """ -->
+<input placeholder="Text queue" id="input_toast" />
+<button id="toast_queue_button">Queue Toast</button>
+<link href="/static/ui_elements/css/toast.css" rel="stylesheet" />
+<div id="toast_message_div" class="toast"></div>
+<script src="/static/ui_elements/js/toast.js"></script>
+<script>
+  let button = document.getElementById("toast_queue_button");
+  let  Recurse= 0;
+  const  RecurseLimit= 30;
+  let past;
+  function test() {
+    if (Recurse >= RecurseLimit){
+      throw new Error("Function call limit exceeded.")
+    }
+    try {
+      for (let i = 0; i < 10; i++) {
+        try {
+          new ToastMessage("Hello world   " + i);
+        } catch (e) {
+          console.error("Error : ", e);
+        }
+      }
+    } catch (e) {
+      console.log("Error");
+      console.log("error");
+      console.error(e);
+    }
+setTimeout ( ()=> {} , 1000)
+    Recurse  ++;
+  }
+  button.addEventListener("click", test);
+</script>
