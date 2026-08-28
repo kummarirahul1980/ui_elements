@@ -2,8 +2,9 @@
 
 function DrawDynamicTable(TableObject, ListData) {
   // Creating the table body and head;
+  const MessageBox = document.getElementById("rjelements_message_reciever")
   if (!Array.isArray(ListData) || ListData.length == 0) {
-    MessageBox.innerHTML = "Empty data";
+    if (MessageBox) { MessageBox.innerHTML = "Empty data"; }
     console.error("Recieved an empty data.");
     return 0;
   }
